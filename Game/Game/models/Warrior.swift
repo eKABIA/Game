@@ -4,12 +4,12 @@
 //
 //  Created by edouard Kabia on 13/06/2022.
 //
+import Foundation
 
-import UIKit
-
-class Warrior: Personnage {
-   
+class Warrior: Character {
+    
     convenience init(name: String) {
-        self.init(name: name, health: 100, damage: 10)
+        self.init(name: name, maxLife: 100, damage: 10)
     }
+    
 }
