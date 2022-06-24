@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// Extend from Character he is Strong life but low Damage
 class Colossus: Character{
     //
     convenience init(name: String) {

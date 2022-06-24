@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Extend from Character he is low life but higth Damage
 class Dwarf: Character {
     convenience init(name: String) {
         self.init(name: name, maxLife: 90, damage: 15)

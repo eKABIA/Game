@@ -6,10 +6,10 @@
 //
 import Foundation
 
+/// Extend from Character he is equilibrate life and damage
 class Warrior: Character {
     
     convenience init(name: String) {
         self.init(name: name, maxLife: 100, damage: 10)
     }
-    
 }

@@ -7,6 +7,17 @@
 
 import Foundation
 
+
+/// A player forms a team of 3 characters.
+/// Has a unique number.
+/// - Attributs :
+///     - characters : [Character] Created by the player at the start
+///     - number : Int unique number of player can be set manually
+///     - static var charactersNames : [[Int : String]] array to store all characters names of all player to maintain their uniqueness
+///     - static var playerNumber : Intstatic var playerNumber : Int allow to générate automatically unique number of player
+/// - Methods :
+///     - private func getCharacterName() -> String
+///     
 class Player: Any {
     
     //
@@ -18,8 +29,8 @@ class Player: Any {
     
     static var playerNumber : Int = 0
     //
-    /// Fonction d'initialisation permettant au joueur de constituer son équipe
-    /// - Parameter number: Numéro du joueur
+    /// Initialization function allowing the player to build his team
+    /// - Parameter number: player number
     init(number : Int) {
         self.number = number
         print("Bonjour,\nJoueur \(number) procédons à la construction de l'équipe")
@@ -30,7 +41,7 @@ class Player: Any {
             let characterName = getCharacterName()
             //
             print("Quelle type de personage sera \(characterName)\n0 - Colossus \n1 - Dwarf \n2 - Magus  \n3 - Warrior")
-            let type = getCharacterType()
+            let type = SkyHelper().getNumber(min: 0, max: 3)
             switch type{
                 case 0:
                     self.characters.append(Colossus(name: characterName))
@@ -46,6 +57,7 @@ class Player: Any {
         }
     }
     
+    /// Initialization function allowing the player to build randomly his team
     init(){
         Player.playerNumber += 1
         number = Player.playerNumber
@@ -66,30 +78,8 @@ class Player: Any {
         }
     }
     
-    /// Permet d'obtenir un nombre entre 0 et 3 avec gestion des erreurs
-    /// - Returns: Type de personnage entre 0 et 3
-    private func getCharacterType() -> Int{
-        //
-        var numero = -1
-        //
-        while numero == -1 {
-            if let type = readLine() {
-                if let typeNumber = Int(type){
-                    if(typeNumber >= 0 && typeNumber <= 3){
-                        numero = typeNumber
-                    }
-                    else{
-                        print("Veuillez saisir un numéro entre 0 et 3 ")
-                    }
-                }
-                else {
-                    print("numéro saisie invalide ")
-                }
-            }
-        }
-        return numero
-    }
-    
+    /// Allows you to enter a new character name and maintain its uniqueness
+    /// - Returns: The new created name and store it
     private func getCharacterName() -> String{
         var alreadyNamed = true
         var realName = ""
