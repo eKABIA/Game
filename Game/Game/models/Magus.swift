@@ -25,20 +25,27 @@ class Magus : Character {
     /// Better heal allies than you, this methode add life to character and update other attributs for further stats
     /// - Parameter character: the healed
     func heal (_ character : Character){
+        
         var healValue : Int = 0
         
         if (self.name == character.name){ healValue = self.damage }
         else { healValue = 7}
-           
+        
+        healed(healValue: healValue)
+        /*
         if((character.life + healValue) > character.maxLife ) { character.life = character.maxLife }
 
         else {character.life += healValue}
-        
+
+        character.healingReceived += healValue*/
         self.lifeProvided += healValue
         
-        character.healingReceived += healValue
-        
         self.numberOfTurn += 1
-        
+    }
+    
+    private func healed(healValue : Int){
+        if self.life + healValue > self.maxLife { self.life = self.maxLife }
+        else { self.life += healValue}
+        self.healingReceived += healValue
     }
 }

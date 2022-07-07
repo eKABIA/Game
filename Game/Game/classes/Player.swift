@@ -19,26 +19,23 @@ import Foundation
 ///     - private func getCharacterName() -> String
 ///     
 class Player: Any {
-    
     //
     var characters : [Character] = [Character]()
     //
-    var number : Int
+    var number : Int = 0
     //
-    static var charactersNames : [[Int : String]] = [[:]]
-    
-    static var playerNumber : Int = 0
+    var aliveChamps : [Character] { get { return self.characters.filter{!$0.isDead}}}
     //
     /// Initialization function allowing the player to build his team
     /// - Parameter number: player number
-    init(number : Int) {
+    /*init(number : Int) {
         self.number = number
         print("Bonjour,\nJoueur \(number) procédons à la construction de l'équipe")
         var numeroPersonnage = 1
         while self.characters.count < 3{
             print("Veuillez choisir le nom de votre personnage numéro \(numeroPersonnage)")
             //
-            let characterName = getCharacterName()
+            let characterName = Game.getCharacterName(numberPlayerNumber : self.number)
             //
             print("Quelle type de personage sera \(characterName)\n0 - Colossus \n1 - Dwarf \n2 - Magus  \n3 - Warrior")
             let type = SkyHelper().getNumber(min: 0, max: 3)
@@ -55,14 +52,14 @@ class Player: Any {
             }
             numeroPersonnage += 1
         }
-    }
+    }*/
     
     /// Initialization function allowing the player to build randomly his team
-    init(){
-        Player.playerNumber += 1
-        number = Player.playerNumber
+    /*init(){
+        Game.playerNumber += 1
+        self.number = Game.playerNumber
         for i in 1...3{
-            let _name = "P_\(number)_Charac_\(i)"
+            let _name = "P_\(self.number)_Charac_\(i)"
             let type = Int.random(in: 0...3)
             switch type{
                 case 0:
@@ -76,11 +73,11 @@ class Player: Any {
                 default : break
             }
         }
-    }
+    }*/
     
     /// Allows you to enter a new character name and maintain its uniqueness
     /// - Returns: The new created name and store it
-    private func getCharacterName() -> String{
+    /*private func getCharacterName() -> String{
         var alreadyNamed = true
         var realName = ""
         while alreadyNamed{
@@ -107,6 +104,6 @@ class Player: Any {
         }
         Player.charactersNames.append([self.number : realName])
         return realName
-    }
+    }*/
     
 }

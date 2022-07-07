@@ -37,6 +37,51 @@ struct SkyHelper{
         }
         return numero
     }
+    // default inserted name for demo
+    var characterNames : [String] {
+        get {
+            return [
+                "Nasus",
+                "Darius",
+                "Mordekaiser",
+                "Malphite",
+                "Leona",
+                "Braum",
+                "Nunu",
+                "Tahm Kench",
+                "Vi",
+                "Xin Zhao",
+                "Nocturne",
+                "Zed",
+                "Kha’zix",
+                "Fizz",
+                "Fiora",
+                "Riven",
+                "Yasuo",
+                "Syndra",
+                "Veigar",
+                "Annie",
+                "Karthus",
+                "Vladimir",
+                "Ryze",
+                "Xerath",
+                "Ziggs",
+                "Vel’Koz",
+                "Janna",
+                "Nami",
+                "Sona",
+                "Anivia",
+                "Zyra",
+                "Heimerdinger",
+                "Vayne",
+                "Caitlyn",
+                "Ashe",
+                "Cho’Gath",
+                "Blitzcrank",
+                "Singed"
+            ]
+        }
+    }
 }
 
 /// Enum for managing demo mode and normal mode
@@ -44,3 +89,5 @@ enum GameMode{
     case Normal
     case Demo
 }
+
+

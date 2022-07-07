@@ -23,7 +23,7 @@ result == 0 ? (gameMode = GameMode.Normal) : (gameMode = GameMode.Demo)
 // initializing our game class with selected game mode
 var game = Game(gameMode : gameMode)
 // start the game and enjoy
-game.figth()
+game.fight()
 
 
 

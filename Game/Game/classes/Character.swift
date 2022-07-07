@@ -33,11 +33,18 @@ class Character: Any {
     var healingReceived : Int = 0
     var numberOfTurn : Int = 0
     //
+    var isDead : Bool {
+        get{
+            return self.life == 0
+        }
+    }
+    
     /// Constructor
     /// - Parameters:
     ///   - name: desired name of the character
     ///   - maxLife: maximum life of the character, allows to initialize the basic life
     ///   - damage: damage that your characted inflicte to your enemies
+    ///   
     init(name : String, maxLife : Int, damage : Int) {
         self.name = name
         self.maxLife = maxLife
@@ -48,9 +55,21 @@ class Character: Any {
     ///Allows you to perform an attack on a character and update other attributs for further stats
     /// - Parameter attacked: targeted character
     func attack (_ attacked : Character){
-        attacked.life -= self.damage
-        attacked.damageSuffered += self.damage
+        damaged(damage: self.damage)
+        /*if attacked.life - self.damage <= 0{
+            attacked.life = 0
+        }
+        else {
+            attacked.life -= self.damage
+        }
+        attacked.damageSuffered += self.damage*/
         self.damageInflicted += self.damage
         self.numberOfTurn += 1
+    }
+    //
+    private func damaged(damage : Int){
+        if self.life - damage <= 0 {self.life = 0 }
+        else {self.life -= damage}
+        self.damageSuffered += damage
     }
 }
